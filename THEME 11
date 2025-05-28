@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Debug Test Page</title>
+  <!-- External CSS link -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="content">
+    <h1>Responsive Debugging Test</h1>
+    <p>Resize the window or use DevTools device toolbar to test responsiveness.</p>
+  </section>
+</body>
+</html>
+
+/* Navigation styles */
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  background-color: #007BFF;
+  margin: 0;
+}
+
+.nav-menu ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  display: block;
+}
+
+/* Responsive: Stack nav vertically below 768px */
+@media (max-width: 768px) {
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-menu ul li a {
+    padding: 0.5rem 0;
+  }
+}
+
+/* Content styles */
+.content {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+}
