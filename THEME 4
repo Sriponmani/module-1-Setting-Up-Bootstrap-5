@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>City Events & Announcements</h1>
+  </header>
+
+  <section class="event-section">
+    <h2>Upcoming Events</h2>
+    <div class="event">
+      <h3>🏞️ Park Cleanup Day</h3>
+      <p>Join us to help keep our parks clean and green.</p>
+    </div>
+    <div class="event">
+      <h3>🎉 Summer Fest</h3>
+      <p>Food, music, and fun for the whole family!</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 City Council. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+/* ========================
+   Body Styles
+======================== */
+body {
+  /* Fallback background color using HEX */
+  background-color: #e6f2ff;
+
+  /* Background image with fallback */
+  background-image: url('city-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: rgba(0, 0, 0, 0.85); /* Text color using RGBA */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================
+   Header with Gradient
+======================== */
+header {
+  background: linear-gradient(to right, #0056b3, #3399ff); /* Gradient using HEX */
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ========================
+   Section Header with Gradient
+======================== */
+.event-section h2 {
+  background: linear-gradient(to right, #009688, #4db6ac);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 6px;
+  margin: 2rem auto 1rem;
+  max-width: 600px;
+}
+
+/* ========================
+   Event Cards
+======================== */
+.event {
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 1rem auto;
+  max-width: 600px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ========================
+   Footer Styles
+======================== */
+footer {
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
