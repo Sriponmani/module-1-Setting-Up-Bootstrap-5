@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 15px;
+      background-color: #f7f9fc;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    h2 {
+      text-align: center;
+      color: #007BFF;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    textarea {
+      min-height: 80px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    output {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Register for an Event</h2>
+
+  <form id="registrationForm">
+    <label for="name">Full Name:</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Enter your full name"
+      required
+      autofocus
+    />
+
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="example@mail.com"
+      required
+    />
+
+    <label for="eventDate">Event Date:</label>
+    <input type="date" id="eventDate" name="eventDate" required />
+
+    <label for="eventType">Event Type:</label>
+    <select id="eventType" name="eventType" required>
+      <option value="" disabled selected>Select an event</option>
+      <option value="community-meeting">Community Meeting</option>
+      <option value="cleanup-drive">Clean-up Drive</option>
+      <option value="art-festival">Art Festival</option>
+      <option value="charity-run">Charity Run</option>
+    </select>
+
+    <label for="message">Additional Message:</label>
+    <textarea
+      id="message"
+      name="message"
+      placeholder="Any special requests or questions?"
+    ></textarea>
+
+    <button type="submit">Submit</button>
+
+    <output id="confirmation"></output>
+  </form>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const output = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const date = form.eventDate.value;
+      const eventType = form.eventType.options[form.eventType.selectedIndex].text;
+
+      output.textContent = `Thank you, ${name}! You are registered for the "${eventType}" on ${date}. A confirmation email will be sent to ${email}.`;
+      
+      // Optionally, clear the form after submission
+      form.reset();
+      form.name.focus();
+    });
+  </script>
+
+</body>
+</html>
