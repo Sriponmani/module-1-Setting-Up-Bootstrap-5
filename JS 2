@@ -1,0 +1,23 @@
+// Using const for event name and date (these do not change)
+const eventName = "Community Cleanup Day";
+const eventDate = "2025-06-15";
+
+// Using let for available seats since this will change
+let availableSeats = 50;
+
+// Display event info using template literals
+console.log(`Event: ${eventName}`);
+console.log(`Date: ${eventDate}`);
+console.log(`Available Seats: ${availableSeats}`);
+
+// Simulate a user registering: decrease available seats by 1
+availableSeats--;
+
+// Show updated seats after registration
+console.log(`Seats after registration: ${availableSeats}`);
+
+// Simulate a cancellation: increase available seats by 1
+availableSeats++;
+
+// Show updated seats after cancellation
+console.log(`Seats after cancellation: ${availableSeats}`);
