@@ -1,0 +1,105 @@
+<!-- Filter by category -->
+<select id="categoryFilter">
+  <option value="all">All Categories</option>
+  <option value="Music">Music</option>
+  <option value="Workshop">Workshop</option>
+  <option value="Wellness">Wellness</option>
+</select>
+
+<!-- Quick search by event name -->
+<input type="text" id="searchInput" placeholder="Search events by name" />
+
+<!-- Container for event cards -->
+<div id="eventsContainer"></div>
+
+const events = [
+  { id: 1, name: "Jazz Night", category: "Music", seats: 5 },
+  { id: 2, name: "Baking Workshop", category: "Workshop", seats: 3 },
+  { id: 3, name: "Yoga Class", category: "Wellness", seats: 10 },
+  { id: 4, name: "Rock Concert", category: "Music", seats: 0 },
+];
+
+const eventsContainer = document.querySelector("#eventsContainer");
+const categoryFilter = document.querySelector("#categoryFilter");
+const searchInput = document.querySelector("#searchInput");
+
+let filteredEvents = [...events]; // Start with all events
+
+// Render event cards
+function renderEvents(eventList) {
+  eventsContainer.innerHTML = "";
+  if (eventList.length === 0) {
+    eventsContainer.textContent = "No events found.";
+    return;
+  }
+  eventList.forEach(event => {
+    const card = document.createElement("div");
+    card.className = "event-card";
+    card.style.border = "1px solid #ccc";
+    card.style.padding = "10px";
+    card.style.margin = "10px 0";
+
+    const title = document.createElement("h3");
+    title.textContent = event.name;
+
+    const category = document.createElement("p");
+    category.textContent = `Category: ${event.category}`;
+
+    const seats = document.createElement("p");
+    seats.textContent = `Seats available: ${event.seats}`;
+
+    const registerBtn = document.createElement("button");
+    registerBtn.textContent = "Register";
+    registerBtn.disabled = event.seats === 0; // Disable if no seats
+    registerBtn.onclick = () => register(event.id);
+
+    card.appendChild(title);
+    card.appendChild(category);
+    card.appendChild(seats);
+    card.appendChild(registerBtn);
+
+    eventsContainer.appendChild(card);
+  });
+}
+
+// Register user function
+function register(eventId) {
+  const event = events.find(e => e.id === eventId);
+  if (event && event.seats > 0) {
+    event.seats--;
+    alert(`Registered for ${event.name}`);
+    applyFilters();
+  } else {
+    alert("No seats available");
+  }
+}
+
+// Filter events by category onchange
+categoryFilter.onchange = () => {
+  applyFilters();
+};
+
+// Quick search on keydown in input
+searchInput.onkeydown = (e) => {
+  // Allow regular key presses; update filter after slight delay to get latest input value
+  setTimeout(() => {
+    applyFilters();
+  }, 100);
+};
+
+// Apply filters and render
+function applyFilters() {
+  const category = categoryFilter.value;
+  const searchTerm = searchInput.value.toLowerCase();
+
+  filteredEvents = events.filter(event => {
+    const categoryMatch = category === "all" || event.category === category;
+    const searchMatch = event.name.toLowerCase().includes(searchTerm);
+    return categoryMatch && searchMatch;
+  });
+
+  renderEvents(filteredEvents);
+}
+
+// Initial render
+renderEvents(events);

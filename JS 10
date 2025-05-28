@@ -1,0 +1,23 @@
+// Sample events array
+const events = [
+  { id: 1, name: "Music Fest", date: "2025-06-01", category: "music" },
+  { id: 2, name: "Art Workshop", date: "2025-06-15", category: "art" },
+  { id: 3, name: "Food Carnival", date: "2025-07-10", category: "food" },
+];
+
+// Function to display events with default parameter
+function displayEvents(eventList = []) {
+  eventList.forEach(({ id, name, date, category }) => {
+    console.log(`Event #${id}: ${name} (${category}) on ${date}`);
+  });
+}
+
+// Clone events array before filtering using spread operator
+const musicEvents = [...events].filter(({ category }) => category === "music");
+
+// Use let/const properly, and call the function
+console.log("All Events:");
+displayEvents(events);
+
+console.log("\nFiltered Music Events:");
+displayEvents(musicEvents);

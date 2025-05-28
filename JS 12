@@ -1,0 +1,71 @@
+const form = document.getElementById('registrationForm');
+const confirmation = document.getElementById('confirmation');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Clear previous messages and errors
+  confirmation.textContent = '';
+  ['nameError', 'emailError', 'eventError'].forEach(id => {
+    document.getElementById(id).textContent = '';
+  });
+
+  const name = form.elements['name'].value.trim();
+  const email = form.elements['email'].value.trim();
+  const selectedEvent = form.elements['event'].value;
+
+  let isValid = true;
+
+  // Validate Name
+  if (name.length < 3) {
+    document.getElementById('nameError').textContent = 'Please enter your full name (min 3 characters).';
+    isValid = false;
+  }
+
+  // Validate Email (simple regex)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+    isValid = false;
+  }
+
+  // Validate Event selection
+  if (!selectedEvent) {
+    document.getElementById('eventError').textContent = 'Please select an event.';
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  // Prepare data to send
+  const formData = {
+    name,
+    email,
+    event: selectedEvent
+  };
+
+  confirmation.textContent = 'Sending registration...';
+
+  // Simulate delayed fetch with setTimeout
+  setTimeout(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts', {  // Mock API endpoint
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        confirmation.textContent = `Registration successful! Your ID: ${data.id}`;
+        form.reset();
+      })
+      .catch(error => {
+        confirmation.textContent = `Registration failed: ${error.message}`;
+        confirmation.style.color = 'red';
+      });
+  }, 2000); // 2-second delay to simulate server processing
+});

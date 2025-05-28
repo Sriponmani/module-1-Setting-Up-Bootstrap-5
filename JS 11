@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Registration</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Register for an Event</h2>
+  <form id="registrationForm" novalidate>
+    <label>
+      Name:
+      <input type="text" name="name" placeholder="Your full name" required />
+      <span class="error" id="nameError"></span>
+    </label><br><br>
+
+    <label>
+      Email:
+      <input type="email" name="email" placeholder="your.email@example.com" required />
+      <span class="error" id="emailError"></span>
+    </label><br><br>
+
+    <label>
+      Select Event:
+      <select name="event" required>
+        <option value="">-- Select an Event --</option>
+        <option value="musicFest">Music Fest</option>
+        <option value="artWorkshop">Art Workshop</option>
+        <option value="foodCarnival">Food Carnival</option>
+      </select>
+      <span class="error" id="eventError"></span>
+    </label><br><br>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="confirmation" class="success"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>
+
+const form = document.getElementById('registrationForm');
+const confirmation = document.getElementById('confirmation');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Clear previous errors and confirmation
+  confirmation.textContent = '';
+  ['nameError', 'emailError', 'eventError'].forEach(id => {
+    document.getElementById(id).textContent = '';
+  });
+
+  const name = form.elements['name'].value.trim();
+  const email = form.elements['email'].value.trim();
+  const selectedEvent = form.elements['event'].value;
+
+  let isValid = true;
+
+  // Validate Name
+  if (name.length < 3) {
+    document.getElementById('nameError').textContent = 'Please enter your full name (min 3 characters).';
+    isValid = false;
+  }
+
+  // Validate Email (simple regex)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+    isValid = false;
+  }
+
+  // Validate Event selection
+  if (!selectedEvent) {
+    document.getElementById('eventError').textContent = 'Please select an event.';
+    isValid = false;
+  }
+
+  if (isValid) {
+    confirmation.textContent = `Thank you, ${name}! You are registered for the event.`;
+    form.reset();
+  }
+});
