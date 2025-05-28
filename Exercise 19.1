@@ -1,0 +1,31 @@
+mkdir bootstrap-sass-project
+cd bootstrap-sass-project
+npm init -y
+npm install bootstrap sass
+bootstrap-sass-project/
+├── scss/
+│   └── custom.scss
+├── css/
+│   └── (compiled CSS will go here)
+├── index.html
+├── package.json
+// Import Bootstrap's source Sass
+@import "node_modules/bootstrap/scss/bootstrap";
+npx sass scss/custom.scss css/custom.css
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5 with Sass</title>
+  <link rel="stylesheet" href="css/custom.css" />
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-primary">Hello, Bootstrap with Sass!</h1>
+  </div>
+</body>
+</html>
+
+npx sass --watch scss/custom.scss:css/custom.css
