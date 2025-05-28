@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Community Event Portal</title>
+
+  <!-- Internal CSS for quick setup -->
+  <style>
+    /* General Page Styles */
+    body {
+      background-color: #fff8f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header Section */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    /* Event Section */
+    .event {
+      background-color: #fdfdfd;
+      border: 1px solid #ddd;
+      margin: 1rem auto;
+      padding: 1rem;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .event h3 {
+      color: #e74c3c;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #34495e;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1 style="color: #f1c40f;">Local Community Event Portal</h1> <!-- Inline style -->
+    <p>Stay connected with local happenings</p>
+  </header>
+
+  <section class="event">
+    <h3>🎨 Art & Craft Fair</h3>
+    <p>Date: June 10, 2025</p>
+    <p>Location: City Hall Park</p>
+    <button class="register-btn">Register</button>
+  </section>
+
+  <section class="event">
+    <h3>🎵 Live Music Night</h3>
+    <p>Date: June 15, 2025</p>
+    <p>Location: Riverside Café</p>
+    <button class="register-btn">Register</button>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Local Community. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+/* styles.css */
+
+/* Register Button Styles */
+.register-btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #2980b9;
+}
