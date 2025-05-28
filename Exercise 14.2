@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Sidebar</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .sidebar {
+      background-color: #343a40;
+      color: white;
+      min-width: 250px;
+      padding: 1.5rem;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 2rem;
+    }
+    .sidebar a {
+      color: #adb5bd;
+      display: block;
+      margin-bottom: 1rem;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar visible md and above -->
+  <nav class="sidebar d-none d-md-block">
+    <h4>Sidebar Menu</h4>
+    <a href="#">Dashboard</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a href="#">Help</a>
+    <a href="#">Logout</a>
+  </nav>
+
+  <!-- Main content -->
+  <main class="content">
+    <h1>Main Content Area</h1>
+    <p>
+      This content takes full width on mobile and adjusts with the sidebar visible from tablet sizes upwards.
+    </p>
+    <p>Resize the window to see the sidebar appear/disappear.</p>
+  </main>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
