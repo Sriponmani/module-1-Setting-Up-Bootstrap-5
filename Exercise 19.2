@@ -1,0 +1,21 @@
+// _variables.scss
+
+// Change primary color
+$primary: #ff5722; // deep orange
+
+// Change border radius globally
+$border-radius: 1rem; // 16px rounded corners
+
+// Import custom variables BEFORE bootstrap
+@import "variables";
+
+// Then import Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";
+
+npx sass scss/custom.scss css/custom.css
+
+$primary: #ff5722;
+$border-radius: 1rem;
+
+@import "variables";
+@import "node_modules/bootstrap/scss/bootstrap";
