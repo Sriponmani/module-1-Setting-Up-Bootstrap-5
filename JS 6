@@ -1,0 +1,27 @@
+// Event constructor for consistency
+class Event {
+  constructor(name, category) {
+    this.name = name;
+    this.category = category;
+  }
+}
+
+// Array to hold community events
+const communityEvents = [];
+
+// Add new events using .push()
+communityEvents.push(new Event("Workshop on Baking", "Cooking"));
+communityEvents.push(new Event("Summer Music Festival", "Music"));
+communityEvents.push(new Event("Yoga for Beginners", "Wellness"));
+communityEvents.push(new Event("Jazz Night", "Music"));
+
+// Use .filter() to show only music events
+const musicEvents = communityEvents.filter(event => event.category === "Music");
+
+// Use .map() to format display cards
+const eventCards = musicEvents.map(event => `🎵 ${event.name}`);
+
+// Display results in console
+console.log("All Community Events:", communityEvents);
+console.log("Music Events:", musicEvents);
+console.log("Formatted Music Event Cards:", eventCards);
