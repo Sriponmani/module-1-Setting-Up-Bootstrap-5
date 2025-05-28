@@ -1,0 +1,81 @@
+/* --------------------------------------
+   Universal Selector - Reset margins and padding
+-------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------
+   Element Selector - Style all <h2> elements
+-------------------------------------- */
+h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------------
+   ID Selector - Style the main header banner
+-------------------------------------- */
+#mainHeader {
+  background-color: #007BFF;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* --------------------------------------
+   Class Selector - Style event containers
+-------------------------------------- */
+.eventCard {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --------------------------------------
+   Grouping Selector - Style <h3> and <p> together
+-------------------------------------- */
+h3, p {
+  color: #34495e;
+  margin-bottom: 0.75rem;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selectors Playground</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ID Selector -->
+  <header id="mainHeader">
+    <h1>Community Events</h1>
+    <p>Discover local happenings around you</p>
+  </header>
+
+  <!-- Element Selector (h2) -->
+  <h2>Upcoming Events</h2>
+
+  <!-- Class Selector (.eventCard) -->
+  <section class="eventCard">
+    <h3>Farmers Market</h3>
+    <p>Enjoy fresh produce and artisan goods.</p>
+  </section>
+
+  <section class="eventCard">
+    <h3>Outdoor Movie Night</h3>
+    <p>Bring a blanket and enjoy a classic film under the stars.</p>
+  </section>
+
+</body>
+</html>
