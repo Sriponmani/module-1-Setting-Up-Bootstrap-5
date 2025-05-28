@@ -1,0 +1,62 @@
+<div id="eventsContainer"></div>
+<button id="registerBtn">Register for First Event</button>
+<button id="cancelBtn">Cancel Registration for First Event</button>
+
+// Sample events array
+const events = [
+  { name: "Community Cleanup", seats: 5 },
+  { name: "Tech Meetup", seats: 10 },
+  { name: "Book Fair", seats: 0 }
+];
+
+// Get reference to container div
+const eventsContainer = document.querySelector("#eventsContainer");
+
+// Function to render all event cards
+function renderEvents() {
+  eventsContainer.innerHTML = ""; // Clear existing content
+
+  events.forEach((event, index) => {
+    // Create card container
+    const card = document.createElement("div");
+    card.className = "event-card";
+    card.style.border = "1px solid #ccc";
+    card.style.padding = "10px";
+    card.style.margin = "10px 0";
+
+    // Event name and seats info
+    const title = document.createElement("h3");
+    title.textContent = event.name;
+
+    const seats = document.createElement("p");
+    seats.textContent = `Seats available: ${event.seats}`;
+
+    // Append elements to card
+    card.appendChild(title);
+    card.appendChild(seats);
+
+    // Append card to container
+    eventsContainer.appendChild(card);
+  });
+}
+
+// Register button logic: decrease seats for first event
+document.querySelector("#registerBtn").addEventListener("click", () => {
+  if (events[0].seats > 0) {
+    events[0].seats--;
+    alert(`Registered for ${events[0].name}`);
+    renderEvents();
+  } else {
+    alert("No seats available");
+  }
+});
+
+// Cancel button logic: increase seats for first event
+document.querySelector("#cancelBtn").addEventListener("click", () => {
+  events[0].seats++;
+  alert(`Cancelled registration for ${events[0].name}`);
+  renderEvents();
+});
+
+// Initial render
+renderEvents();
