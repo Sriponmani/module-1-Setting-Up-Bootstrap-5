@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>jQuery Event Helpers</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #interactiveBox {
+      width: 300px;
+      height: 150px;
+      background-color: lightblue;
+      border: 2px solid #000;
+      margin: 20px 0;
+      padding: 10px;
+      text-align: center;
+      line-height: 150px;
+      font-size: 20px;
+    }
+    #log {
+      font-family: monospace;
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      // Click changes background to yellow
+      $('#interactiveBox').click(function () {
+        $(this).css('background-color', 'yellow');
+        $('#log').text('Box clicked!');
+      });
+
+      // Double-click resets background
+      $('#interactiveBox').dblclick(function () {
+        $(this).css('background-color', 'lightblue');
+        $('#log').text('Box double-clicked (reset)!');
+      });
+
+      // Mouse enters and leaves box
+      $('#interactiveBox').mouseenter(function () {
+        $(this).css('border-color', 'red');
+        $('#log').text('Mouse entered the box.');
+      });
+
+      $('#interactiveBox').mouseleave(function () {
+        $(this).css('border-color', '#000');
+        $('#log').text('Mouse left the box.');
+      });
+
+      // Keypress in input
+      $('#keyInput').keypress(function (event) {
+        $('#log').text('Key pressed: ' + event.key);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <h2>Event Helpers Demo</h2>
+
+  <div id="interactiveBox">Hover, Click, or Double-Click me</div>
+
+  <input type="text" id="keyInput" placeholder="Type something..." />
+  <div id="log"></div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>jQuery CDN Example</title>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const message = $('p#hello').text();
+      console.log(message);  // Logs "Hello World!"
+    });
+  </script>
+</head>
+<body>
+  <p id="hello">Hello World!</p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>jQuery Local Copy Example</title>
+  <!-- Local jQuery -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const message = $('p#hello').text();
+      console.log(message);  // Logs "Hello World!"
+    });
+  </script>
+</head>
+<body>
+  <p id="hello">Hello World!</p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>jQuery $() Function Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Change the text of the <h1>
+      $('h1').text('Welcome to the Community Portal');
+
+      // When button is clicked, hide the second <p> element
+      $('button').click(function () {
+        $('p').eq(1).hide();  // eq(1) selects the second <p> (0-based index)
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Original Heading</h1>
+  <p>This is the first paragraph.</p>
+  <p>This is the second paragraph.</p>
+  <button>Hide Second Paragraph</button>
+</body>
+</html>
