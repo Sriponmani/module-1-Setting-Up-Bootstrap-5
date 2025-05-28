@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Community Bulletin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="news-article">
+    <h2>Community Bulletin</h2>
+    <p>
+      This weekend, the City Council will host a number of events aimed at fostering local engagement. 
+      Activities will include an open mic night at the community center, a children's art workshop, and 
+      free health screenings for all residents. 
+      <br><br>
+      Volunteers are still needed for setup and coordination. If interested, please contact the community office 
+      or sign up through the portal.
+      <br><br>
+      In other news, the local farmers market will return this Sunday with new vendors, live music, and cooking demos. 
+      This initiative is part of the council's mission to support local agriculture and bring fresh produce to families.
+    </p>
+  </section>
+
+</body>
+</html>
+
+/* ===============================
+   Multi-Column Bulletin Layout
+================================ */
+.news-article {
+  width: 80%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+}
+
+.news-article h2 {
+  text-align: center;
+  column-span: all;
+  margin-bottom: 1rem;
+  font-family: Georgia, serif;
+}
