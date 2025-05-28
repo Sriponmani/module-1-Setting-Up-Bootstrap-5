@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Local Example</title>
+  
+  <!-- Bootstrap CSS (Local) -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons (Optional, Local) -->
+  <link rel="stylesheet" href="icons/bootstrap-icons.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-center">Bootstrap 5 (Local Setup)</h1>
+    <p class="text-center text-muted">Using local CSS, JS, and Bootstrap Icons with JavaScript plugins enabled.</p>
+
+    <!-- Example Button with Tooltip -->
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-success" data-bs-toggle="tooltip" title="Click to Like!">
+        <i class="bi bi-hand-thumbs-up-fill"></i> Like
+      </button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper (Local) -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- Initialize Bootstrap Tooltips -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    });
+  </script>
+</body>
+</html>
