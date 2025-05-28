@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Promo Video with Media Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 8px;
+      text-align: center;
+    }
+    #videoMessage {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Community Event Promo</h2>
+
+  <!-- Video element with controls and oncanplay event -->
+  <video id="promoVideo" width="600" controls oncanplay="videoReady()">
+    <source src="promo-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="videoMessage"></div>
+
+  <form id="eventForm">
+    <h3>Register for the Event</h3>
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" placeholder="Your name" required /><br /><br />
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" name="email" placeholder="Your email" required /><br /><br />
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Show message when video is ready to play
+    function videoReady() {
+      document.getElementById('videoMessage').textContent = "Video ready to play";
+    }
+
+    // Warn users if they try to leave the page with unsaved form data
+    window.onbeforeunload = function(event) {
+      const form = document.getElementById('eventForm');
+      // Check if form is dirty (any input has value)
+      const isDirty = [...form.elements].some(el => {
+        return (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') && el.value !== '';
+      });
+
+      if (isDirty) {
+        const confirmationMessage = "You have unsaved changes. Are you sure you want to leave?";
+        event.returnValue = confirmationMessage; // Gecko, Trident, Chrome 34+
+        return confirmationMessage;             // Gecko, WebKit, Chrome <34
+      }
+      // No warning if form is empty
+      return undefined;
+    };
+
+    // Optional: Clear form on submit to avoid warning on reload after submission
+    document.getElementById('eventForm').addEventListener('submit', function() {
+      window.onbeforeunload = null; // Remove the warning after submit
+    });
+  </script>
+
+</body>
+</html>
