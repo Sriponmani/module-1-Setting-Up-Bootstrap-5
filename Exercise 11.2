@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap Media Object</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <style>
+    .media {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 40px auto;
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .media img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="media">
+    <img src="https://i.pravatar.cc/100" alt="Profile Image" />
+    <div class="media-body">
+      <h5>John Smith</h5>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+        dignissim, nisl sit amet volutpat consectetur, arcu nibh luctus
+        sapien, nec condimentum nulla augue ut massa.
+      </p>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
