@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events Admin Table</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <section class="admin-table">
+    <h2>Event Management</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Event Name</th>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Summer Festival</td>
+          <td>June 10, 2025</td>
+          <td>Main Square</td>
+          <td>Confirmed</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Art in the Park</td>
+          <td>June 24, 2025</td>
+          <td>Riverside</td>
+          <td>Pending</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Food Carnival</td>
+          <td>July 5, 2025</td>
+          <td>City Hall</td>
+          <td>Confirmed</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>
+
+/* ===============================
+   Table Styling
+================================ */
+.admin-table {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.admin-table h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Table Base Styles */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Merge borders */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Row */
+thead th {
+  background-color: #003366;
+  color: white;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Table Body Cells */
+tbody td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Zebra Striping */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
