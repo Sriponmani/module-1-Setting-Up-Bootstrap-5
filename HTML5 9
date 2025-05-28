@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find Nearby Events - Geolocation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 450px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #eef2f7;
+      border-radius: 8px;
+      text-align: center;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #333;
+      min-height: 50px;
+    }
+    #error {
+      color: red;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Locate Nearest Community Event</h2>
+
+  <button id="findBtn">Find Nearby Events</button>
+
+  <div id="output"></div>
+  <div id="error"></div>
+
+  <script>
+    const findBtn = document.getElementById('findBtn');
+    const output = document.getElementById('output');
+    const errorDiv = document.getElementById('error');
+
+    function success(position) {
+      errorDiv.textContent = '';
+      const { latitude, longitude } = position.coords;
+      output.textContent = `Your location:\nLatitude: ${latitude.toFixed(6)}, Longitude: ${longitude.toFixed(6)}`;
+      // Here you could add code to find nearby events based on coordinates
+    }
+
+    function error(err) {
+      output.textContent = '';
+      switch(err.code) {
+        case err.PERMISSION_DENIED:
+          errorDiv.textContent = "Permission denied. Please allow location access.";
+          break;
+        case err.POSITION_UNAVAILABLE:
+          errorDiv.textContent = "Location information is unavailable.";
+          break;
+        case err.TIMEOUT:
+          errorDiv.textContent = "The request timed out. Please try again.";
+          break;
+        default:
+          errorDiv.textContent = "An unknown error occurred.";
+      }
+    }
+
+    findBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        errorDiv.textContent = "Geolocation is not supported by your browser.";
+        return;
+      }
+      errorDiv.textContent = '';
+      output.textContent = "Locating...";
+      navigator.geolocation.getCurrentPosition(success, error, {
+        enableHighAccuracy: true,
+        timeout: 10000,         // 10 seconds
+        maximumAge: 0
+      });
+    });
+  </script>
+
+</body>
+</html>

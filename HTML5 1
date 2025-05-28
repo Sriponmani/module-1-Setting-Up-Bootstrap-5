@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Community Event Portal</title>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#register">Register</a></li>
+      <li><a href="#locations">Locations</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section id="register">
+      <h1>Register for Events</h1>
+      <!-- Registration form will go here -->
+    </section>
+
+    <section id="locations">
+      <h2>Event Locations</h2>
+      <!-- Location details will go here -->
+    </section>
+
+    <section id="services">
+      <h2>Basic Services</h2>
+      <!-- Services info will go here -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>Contact us at: community@citycouncil.gov</p>
+  </footer>
+
+</body>
+</html>
