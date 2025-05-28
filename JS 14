@@ -1,0 +1,22 @@
+<!-- Example snippet -->
+<button id="registerBtn">Register</button>
+
+<div id="eventCard" style="display:none; border:1px solid #ccc; padding:20px; margin-top:20px;">
+  <h3>Community Music Festival</h3>
+  <p>Date: July 10, 2025</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Handle click event on #registerBtn
+    $('#registerBtn').click(function() {
+      // Toggle visibility of the event card using fadeIn and fadeOut
+      if ($('#eventCard').is(':visible')) {
+        $('#eventCard').fadeOut();
+      } else {
+        $('#eventCard').fadeIn();
+      }
+    });
+  });
+</script>
