@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DOM Manipulation with jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #itemList {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+    #itemList li {
+      margin-bottom: 5px;
+    }
+  </style>
+  <script>
+    $(document).ready(function () {
+      $('#addItemBtn').click(function (e) {
+        e.preventDefault();  // Prevent form submission/reload
+
+        // Get input value
+        const newItem = $('#itemInput').val().trim();
+
+        if (newItem) {
+          // Create new <li> and append
+          $('#itemList').append('<li>' + $('<div>').text(newItem).html() + '</li>');
+
+          // Clear input field
+          $('#itemInput').val('');
+        } else {
+          alert('Please enter a value!');
+        }
+      });
+
+      // Remove all list items on button click
+      $('#removeAllBtn').click(function () {
+        $('#itemList').empty();
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>Add Items to the List</h2>
+
+  <form id="itemForm">
+    <input type="text" id="itemInput" placeholder="Enter item" autofocus />
+    <button id="addItemBtn" type="submit">Add Item</button>
+  </form>
+
+  <button id="removeAllBtn" style="margin-top: 10px;">Remove All</button>
+
+  <ul id="itemList"></ul>
+</body>
+</html>
