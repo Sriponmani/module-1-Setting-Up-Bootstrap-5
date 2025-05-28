@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Display Utilities</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <style>
+    .box {
+      padding: 20px;
+      margin: 10px 0;
+      color: white;
+      text-align: center;
+      border-radius: 5px;
+    }
+    .box-1 { background-color: #007bff; }  /* Blue */
+    .box-2 { background-color: #28a745; }  /* Green */
+    .box-3 { background-color: #ffc107; }  /* Yellow */
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+
+    <!-- Hidden on all, visible as block on md and up -->
+    <div class="box box-1 d-none d-md-block">
+      Visible on md (≥768px) and larger as block
+    </div>
+
+    <!-- Visible on all except hidden on md and below -->
+    <div class="box box-2 d-none d-lg-flex justify-content-center align-items-center">
+      Visible only on lg (≥992px) and larger as flex
+    </div>
+
+    <!-- Visible only on xs and sm (below md) -->
+    <div class="box box-3 d-block d-md-none">
+      Visible only on xs and sm (less than 768px)
+    </div>
+
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
