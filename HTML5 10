@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Debugging Practice</title>
+  <style>
+    /* Intentionally simple style */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .box {
+      width: 200px;
+      height: 100px;
+      background-color: coral;
+      margin-bottom: 20px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Debugging with Chrome DevTools</h1>
+
+  <div class="box" id="box1">Click me!</div>
+
+  <script>
+    console.log("Page loaded");
+
+    const box = document.getElementById('box1');
+
+    box.addEventListener('click', () => {
+      console.log("Box clicked");
+      const x = 5;
+      const y = 10;
+      const result = addNumbers(x, y);
+      console.log(`Result of addNumbers(${x}, ${y}) is ${result}`);
+    });
+
+    function addNumbers(a, b) {
+      debugger;  // <-- Add breakpoint here or set via DevTools
+      return a + b;
+    }
+
+    // Intentional error to test console error reporting
+    // undefinedFunction();
+  </script>
+
+</body>
+</html>
