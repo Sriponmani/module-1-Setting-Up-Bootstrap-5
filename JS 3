@@ -1,0 +1,49 @@
+// Sample list of events with name, date, and available seats
+const events = [
+  { name: "Community Cleanup Day", date: "2025-06-15", seats: 10 },
+  { name: "Summer Festival", date: "2024-10-01", seats: 0 },
+  { name: "Neighborhood BBQ", date: "2025-05-01", seats: 5 },
+  { name: "Winter Charity Drive", date: "2024-01-20", seats: 20 }
+];
+
+// Get today’s date for comparison
+const today = new Date();
+
+// Function to check if event is upcoming and has seats
+function isEventValid(event) {
+  const eventDate = new Date(event.date);
+  return eventDate >= today && event.seats > 0;
+}
+
+// Loop through events and display valid ones
+events.forEach(event => {
+  if (isEventValid(event)) {
+    console.log(`Upcoming Event: ${event.name} on ${event.date} with ${event.seats} seats available`);
+  } else {
+    console.log(`Skipping event: ${event.name} (either past or full)`);
+  }
+});
+
+// Registration function wrapped in try-catch for error handling
+function register(eventName) {
+  try {
+    // Find event by name
+    const event = events.find(e => e.name === eventName);
+    if (!event) throw new Error("Event not found");
+
+    // Check event validity
+    if (!isEventValid(event)) throw new Error("Event is either full or past");
+
+    // Register user: reduce seats
+    event.seats--;
+    console.log(`Registration successful! Remaining seats: ${event.seats}`);
+
+  } catch (error) {
+    console.error("Registration failed:", error.message);
+  }
+}
+
+// Example calls:
+register("Neighborhood BBQ");  // Should succeed
+register("Summer Festival");   // Should fail (full event)
+register("Nonexistent Event"); // Should fail (no such event)
