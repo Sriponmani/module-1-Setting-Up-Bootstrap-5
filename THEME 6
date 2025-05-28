@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Links & Lists</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Explore the City</h1>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="resources">
+    <h2>Quick Links</h2>
+    <ul class="styled-list">
+      <li><a href="#">City Council Portal</a></li>
+      <li><a href="#">Volunteer Opportunities</a></li>
+      <li><a href="#">Community Guidelines</a></li>
+    </ul>
+  </section>
+
+</body>
+</html>
+
+/* ===============================
+   General Body Styles
+================================ */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===============================
+   Header and Nav Styling
+================================ */
+header {
+  background-color: #003366;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nav-menu {
+  list-style: none; /* Remove bullets */
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.nav-menu li {
+  margin: 0;
+  padding: 0.5rem 1rem;
+}
+
+/* ===============================
+   Link Styling
+================================ */
+a:link {
+  color: #3399ff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #6a5acd;
+}
+
+a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #cc0000;
+}
+
+/* ===============================
+   Styled List Section
+================================ */
+.resources {
+  padding: 2rem;
+  background-color: #ffffff;
+  max-width: 600px;
+  margin: 2rem auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.styled-list {
+  list-style-type: square;              /* Change bullet style */
+  list-style-position: inside;          /* Bullets inside the box */
+  padding: 0;
+}
+
+.styled-list li {
+  margin-bottom: 0.75rem;               /* Vertical spacing */
+  padding-left: 0.5rem;
+}
