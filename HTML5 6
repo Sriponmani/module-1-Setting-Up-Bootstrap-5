@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Feedback with Event Handling</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    #eventFee {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    #charCount {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 4px;
+    }
+    #confirmation {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+    img {
+      width: 150px;
+      height: 100px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      margin-top: 15px;
+    }
+    img.enlarged {
+      transform: scale(2);
+      z-index: 1000;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Event Feedback Form</h2>
+
+  <form id="feedbackForm">
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit phone" onblur="validatePhone()" required />
+
+    <label for="eventSelect">Select Event:</label>
+    <select id="eventSelect" name="eventSelect" onchange="displayFee()" required>
+      <option value="" disabled selected>Choose an event</option>
+      <option value="community-meeting" data-fee="Free">Community Meeting - Free</option>
+      <option value="cleanup-drive" data-fee="$10">Clean-up Drive - $10</option>
+      <option value="art-festival" data-fee="$15">Art Festival - $15</option>
+      <option value="charity-run" data-fee="$20">Charity Run - $20</option>
+    </select>
+    <div id="eventFee"></div>
+
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" name="feedback" placeholder="Type your feedback here..." onkeyup="countChars()" maxlength="250"></textarea>
+    <div id="charCount">Characters typed: 0 / 250</div>
+
+    <button type="button" onclick="submitForm()">Submit Feedback</button>
+
+  </form>
+
+  <div id="confirmation"></div>
+
+  <img
+    id="eventImage"
+    src="event1.jpg"
+    alt="Event Image"
+    title="Double-click to enlarge"
+    ondblclick="toggleImageSize()"
+  />
+
+  <script>
+    // Validate phone number on blur
+    function validatePhone() {
+      const phoneInput = document.getElementById('phone');
+      const phone = phoneInput.value.trim();
+      const phonePattern = /^\d{10}$/;
+      if (!phonePattern.test(phone)) {
+        alert('Please enter a valid 10-digit phone number.');
+        phoneInput.focus();
+      }
+    }
+
+    // Display event fee on dropdown change
+    function displayFee() {
+      const select = document.getElementById('eventSelect');
+      const fee = select.options[select.selectedIndex].getAttribute('data-fee');
+      const feeDiv = document.getElementById('eventFee');
+      feeDiv.textContent = fee ? `Event Fee: ${fee}` : '';
+    }
+
+    // Show confirmation on submit button click
+    function submitForm() {
+      const phone = document.getElementById('phone').value.trim();
+      const eventName = document.getElementById('eventSelect').options[document.getElementById('eventSelect').selectedIndex].text;
+      const feedback = document.getElementById('feedback').value.trim();
+
+      if (!phone || !eventName || !feedback) {
+        alert('Please complete all fields before submitting.');
+        return;
+      }
+
+      const confirmationDiv = document.getElementById('confirmation');
+      confirmationDiv.textContent = `Thank you for your feedback on "${eventName}". We have received your message.`;
+      // Optionally clear the form:
+      document.getElementById('feedbackForm').reset();
+      document.getElementById('eventFee').textContent = '';
+      document.getElementById('charCount').textContent = 'Characters typed: 0 / 250';
+    }
+
+    // Toggle image size on double click
+    function toggleImageSize() {
+      const img = document.getElementById('eventImage');
+      img.classList.toggle('enlarged');
+    }
+
+    // Count characters in feedback textarea
+    function countChars() {
+      const textarea = document.getElementById('feedback');
+      const count = textarea.value.length;
+      const charCountDiv = document.getElementById('charCount');
+      charCountDiv.textContent = `Characters typed: ${count} / 250`;
+    }
+  </script>
+
+</body>
+</html>
