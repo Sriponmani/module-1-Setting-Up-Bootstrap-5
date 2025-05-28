@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Box Model Layout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <section class="eventCard">
+    <h2>Community Yoga Session</h2>
+    <p>Join our free outdoor yoga event this weekend. Mats provided!</p>
+  </section>
+
+  <form class="registerForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" class="selected" placeholder="Enter your name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email">
+  </form>
+
+  <div class="box visible-box">I am visible</div>
+  <div class="box hidden-box">I am hidden with visibility: hidden</div>
+  <div class="box none-box">I am removed with display: none</div>
+
+</body>
+</html>
+
+/* ===============================
+   Event Card Box Model Styling
+================================ */
+.eventCard {
+  border: 2px solid #007BFF;       /* Visible border */
+  padding: 20px;                   /* Space inside the box */
+  margin: 30px auto;               /* Space around the box */
+  width: 80%;
+  background-color: #f0f8ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===============================
+   Form Highlight Outline
+================================ */
+.registerForm {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.registerForm input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Highlight selected input with outline */
+.selected {
+  outline: 2px dashed #ff6600;
+  outline-offset: 3px;
+}
+
+/* ===============================
+   Visibility vs Display
+================================ */
+.box {
+  margin: 20px auto;
+  padding: 10px;
+  width: 60%;
+  text-align: center;
+  background-color: #ddd;
+  border: 1px solid #999;
+}
+
+/* This box is just invisible but still takes space */
+.hidden-box {
+  visibility: hidden;
+}
+
+/* This box is removed from the layout entirely */
+.none-box {
+  display: none;
+}
